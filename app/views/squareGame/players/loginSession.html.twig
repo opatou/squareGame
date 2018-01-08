@@ -1,0 +1,26 @@
+{% set squareGame_active = 1 %}
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+    <div class="container mt-60">
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-xs-12">
+                    <label class="lead">Session</label>
+                    <input type="text"  class="form-control" name="nomSession" required="true" />
+                </div>
+            </div>
+            <div class="row mt-20">
+                <div class="col-xs-12">
+                    <label class="lead">Login</label>
+                    <input type="text"  class="form-control" name="nickname" required="true" />
+                </div>
+            </div>
+            <div class="row mt-20">
+                <div class="col-xs-4 col-xs-offset-4">
+                    <input type="submit" class="btn btn-success btn-block" value="Jouer"/>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

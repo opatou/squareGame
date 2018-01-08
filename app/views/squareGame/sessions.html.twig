@@ -1,0 +1,43 @@
+{% set squareGame_active = 1 %}
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+    <div class="container mt-60">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <h2>Square Game</h2>
+                    <h3>liste des sessions crées</h3>
+                    <table  class="table">
+                        <tr>
+                            <th width='100px'>nom session</th>
+                            <th width='100px'>date ouverture</th>
+                            <th width='100px'>date cloture</th>
+                            <th width='100px'>mesure de a en cm2</th>
+                            <th width='100px'>mesure de b en cm2</th>
+                            <th width='100px'>mesure de c en cm2</th>
+                        </tr>
+
+                     {% for elem in sess%}
+                        <tr>
+                            <td><a href="{{ path('report', { 'nomSession': elem.nomSession }) }}">{{ elem.nomSession }}</a></td>
+                            <td>{{ elem.dateOuverture }}</td>
+                            <td>{{ elem.dateFermeture  }}</td>
+                            <td>{{ elem.acm2  }}</td>
+                            <td>{{ elem.bcm2  }}</td>
+                            <td>{{ elem.ccm2  }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </table>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

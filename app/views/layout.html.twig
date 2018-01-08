@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>opatou.com</title>
+
+    <link rel="icon" href="{{ app.request.basepath }}/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="{{ app.request.basepath }}/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{ app.request.basepath }}/bootflat/css/bootflat.min.css" />
+    <link rel="stylesheet" href="{{ app.request.basepath }}/css/style.css" />
+    <link rel="stylesheet" href="{{ app.request.basepath }}/css/compteurs.css" />
+
+     <!--script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script-->
+    <script type="text/javascript" src="{{ app.request.basepath }}/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="{{ app.request.basepath }}/js/squareGame.js"></script>
+    <script type="text/javascript" src="{{ app.request.basepath }}/js/clientREST.js"></script>
+    <script type="text/javascript" src="{{ app.request.basepath }}/js/timerEtPomodoro.js"></script>
+
+
+</head>
+
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+
+<body>
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{{ path('home') }}">opatou.com</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
+                        <ul class="nav navbar-nav">
+                            <li class="{% if timerEtPomodoro_active is defined %}active{% endif%}">
+                                <a href="{{ path('timerEtPomodoro') }}">Timer et pomodoro</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Square Game <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+
+                                    <li>
+                                        <a href="{{ path('squareGameInfo') }}">Introduction au square Game</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{ path('loginSession') }}">Participer à une session</a>
+                                    </li>
+                                     <li>
+                                        <a href="{{ path('sessions') }}">Sessions existantes</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mt-30 main">
+        {% block contents %} {% endblock %}
+    </div>
+
+    <footer class="footer mt-30">
+        <div class="container">
+            <div class="clearfix">
+                <div class="footer-logo">
+                    <a href="{{ path('home') }}"><!--<img src="img/footer-logo.png" alt="logo">-->opatou.com</a>
+                </div>
+                <dl class="footer-nav">
+                    <dt class="nav-title">OPATOU.COM</dt>
+                    <dd class="nav-item"><a href="{{ path('timerEtPomodoro') }}">Timer et pomodoro</a></dd>
+                    <dd class="nav-item"><a href="{{ path('squareGameInfo') }}">Square Game</a></dd>
+
+                </dl>
+                <dl class="footer-nav">
+                    <dt class="nav-title">ABOUT</dt>
+                    <dd class="nav-item"><a href="{{ path('team') }}">L'équipe</a></dd>
+                    <dd class="nav-item"><a href="{{ path('vision') }}">Vision</a></dd>
+                </dl>
+                <dl class="footer-nav">
+                    <dt class="nav-title">CONTACT</dt>
+                    <dd class="nav-item"><a href="{{ path('basicInfo') }}">Basic Info</a></dd>
+                    <dd class="nav-item"><a href="https://twitter.com/olivierpatou" target="_blank">Twitter</a></dd>
+                    <dd class="nav-item"><a href="http:\\opatou.blogspot.com" target="_blank">Blog</a></dd>
+                </dl>
+            </div>
+            <div class="footer-copyright text-center">
+                Copyright © 2016 opatou.com. All rights reserved.
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ app.request.basepath }}/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script  src="{{ app.request.basepath }}/js/timerEtPomodoro.js"></script>
+</body >
+
+</html>

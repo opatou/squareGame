@@ -1,0 +1,38 @@
+{% set squareGame_active = 1 %}
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+    <div class="container mt-60">
+        <div class="row">
+            <div class="col-lg-6 text-center">
+                <canvas id="myCanvas" width="400" height="450" style="border:1px solid #d3d3d3;">
+                    Your browser does not support the HTML5 canvas tag.
+                </canvas>
+                <script type="text/javascript">
+                    drawSquare(u);
+                </script>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <h2>Ice Breaker : Square Game</h2>
+                    <h3>Objectif :</h3>
+                    <p>Démontrer la force des estimations relatives et collectives par rapport aux estimation en absolu</p>
+                    <h3>Principe</h3>
+                    <p>Lancez une session (<a href="./squareGame/startGame">start Game</a>) et demandez à votre auditoire de vous connecter sur <a href="./squareGame/players/loginSession">login session</a>.
+                        Estimez la surface des différents carrés affichés sur cet écran : </p>
+                        <ul>
+                            <li>1- en cm² (Surface = Largeur X Largeur cm² soit L² cm²)</li>
+                            <li>2- en relatif : sachant que le carré A a un coté L= 1 unité (Surface = L² u² soit 1²u²) :</li>
+                        </ul>
+                        <p>Pour lancer une nouvelle session de jeux, cliquez sur <a href="./squareGame/startGame">start Game</a></p>
+                        <p>Pour participer à une session de jeux, cliquez sur <a href="./squareGame/players/loginSession">login session</a></p>
+                        <p>Pour voir la liste des sessiosn jouées et en cours, cliquez sur <a href="./squareGame/sessions">liste des sessions</a></p>
+
+                </div>
+
+
+       </div>
+            </div>
+        </div>
+
+{% endblock %}

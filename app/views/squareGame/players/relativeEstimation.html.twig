@@ -1,0 +1,49 @@
+{% set squareGame_active = 1 %}
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+    <div class="container mt-30">
+        <h3>Estimation en relatif, A étant votre référence:</h3>
+        <form method="post" enctype="multipart/form-data">
+             A fait 1 u² (1u*1u=1u²)<br/>
+            <div class="row">
+                <div class="col-xs-3 text-right">
+                    <label class="lead">A</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text"  class="form-control" name="aRel" value="1" required="true"/>
+                </div>
+                <div class="col-xs-3">
+                    <p class="lead">u²</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3 text-right">
+                    <label class="lead">B</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text"  class="form-control" name="bRel" required="true"/>
+                </div>
+                <div class="col-xs-3">
+                    <p class="lead">u²</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3 text-right">
+                    <label class="lead">C</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text"  class="form-control" name="cRel" required="true"/>
+                </div>
+                <div class="col-xs-3">
+                    <p class="lead">u²</p>
+                </div>
+            </div>
+            <div class="row text-center mt-15">
+                <div class="col-xs-12">
+                    <input type="submit" class="btn btn-success btn-block" value="Terminer"/>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

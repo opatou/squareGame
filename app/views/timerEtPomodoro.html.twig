@@ -1,0 +1,34 @@
+{% set timerEtPomodoro_active = 1 %}
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+<div class="mt-60">
+    <div class="container">
+        <div class="text-center">
+            <h1>opatou.com : The TimeBox</h1>
+            <form name="f_chrono">
+                <label for="saisie">Choisissez votre TimeBox en minutes</label>
+
+                <input type="text"  class="form-control center-block" name="saisie" style="text-align: right;width:60px;" value="5"/>
+                <br>
+                <input type="button" class="btn btn-success" name="btn_dem" id="btn_dem" value="Start" onclick="IndiquerMinutes(f_chrono.saisie.value); DemarrerChrono();" style="display:inline;"/>
+                <input type="button" class="btn btn-danger" name="btn_stop" id="btn_stop" value="Stop" onclick="arreterChrono();" style="display:none;"/>&nbsp;
+                <input type="button" class="btn btn-primary" name="btn_pause" id="btn_pause" value="Pause" onclick="PauseChrono();" style="display:none;"/>&nbsp;
+
+                <h2 id="chrono" style="font-color:'blue'">5 min</h2>
+
+                <input type="radio" name="playMP3" value="on" checked onclick="replayAudio();"> Play MP3 after 50seconds&nbsp;
+                <input type="radio" name="playMP3" value="off"  onclick="stopAudio();"> Stop MP3<br>
+            </form>
+
+
+            <img src="{{ app.request.basepath }}/res/agileEvent.png" alt="Image agileEvent" class="img-rounded img-responsive center-block"/>
+            <p class="img-comment">dessin par Thierry Delestre</p>
+
+            <button class="btn btn-danger" onclick="stopAudio();">stop mp3</button>
+
+            <p class="img-comment">développement opatou</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

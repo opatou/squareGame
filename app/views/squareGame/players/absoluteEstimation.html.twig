@@ -1,0 +1,48 @@
+{% set squareGame_active = 1 %}
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+    <div class="container mt-30">
+        <h3>Quelle est la surface des différents carrés selon votre estimation</h3>
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-xs-3 text-right">
+                    <label class="lead">A</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text"  class="form-control" name="acm2" required="true"/>
+                </div>
+                <div class="col-xs-3">
+                    <p class="lead">cm²</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3 text-right">
+                    <label class="lead">B</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text"  class="form-control" name="bcm2" required="true"/>
+                </div>
+                <div class="col-xs-3">
+                    <p class="lead">cm²</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3 text-right">
+                    <label class="lead">C</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text"  class="form-control" name="ccm2" required="true"/>
+                </div>
+                <div class="col-xs-3">
+                    <p class="lead">cm²</p>
+                </div>
+            </div>
+            <div class="row text-center mt-15">
+                <div class="col-xs-12">
+                    <input type="submit" class="btn btn-success btn-block" value="Suivant"/>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

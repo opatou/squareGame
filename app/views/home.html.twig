@@ -1,0 +1,24 @@
+{% set home_active = 1 %}
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+<div class="mt-30">
+    <div class="container">
+        <div class="row">
+            <h2>Scrum, kanban, outils et blog agile</h2>
+            <div class="col-md-8">
+                <div class="well">
+                    <strong>Blog agilite : </strong>
+                        <a href="http:\\opatou.blogspot.com" target="_blank">Olivier Patou, coach agile</a>
+                    <br/>
+                    <strong>Outils agiles : </strong>
+                    <ul>
+                        <li><a href="{{ path('timerEtPomodoro') }}">Timer et Pomodoro</a></li>
+                        <li><a  href="{{ path('squareGameInfo') }}">Square Game</a> Jeu d'estimation relative avec des carres</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

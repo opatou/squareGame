@@ -1,0 +1,82 @@
+{% set squareGame_active = 1 %}
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+    <div class="container mt-60">
+        <div class="row">
+            <div class="col-lg-6">
+                <canvas id="myCanvas" width="400" height="450" style="border:1px solid #d3d3d3;">
+                    Your browser does not support the HTML5 canvas tag.
+                </canvas>
+                <script type="text/javascript">
+                    drawSquare(u);
+                </script>
+            </div>
+            <div class="col-lg-6">
+
+                <div class="row">
+                     <h2>Ice Breaker : Square Game</h2>
+                    <h3>Cloturer la session</h3>
+                </div>
+                <form method="post" enctype="multipart/form-data">
+                <div class="row">
+
+                       <div class="col-xs-4 col-lg-4">
+                            <p>Session à clôturer</p>
+                        </div>
+                        <div class="col-xs-4 col-lg-4">
+                            <input type="text"  class="form-control" value="{{ app.session.get('nomSession') }}" name="nomSession"/>
+                        </div>
+
+                <div class="row">
+                        <div class="col-xs-12 col-lg-12">
+                         <p><br/>Indiquez la mesure réelle en cm² (L x L) du carré A</p>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-xs-4 col-lg-4">
+                            <label class="lead">A</label>
+                        </div>
+                        <div class="col-xs-4 col-lg-4">
+                            <input type="text"  class="form-control" value="" name="acm2"/>
+                        </div>
+                        <div class="col-xs-4 col-lg-4">
+                            <p class="lead">cm²</p>
+                        </div>
+                </div>
+                <!--div class="row">
+                         <div class="col-xs-4 col-lg-4">
+                            <label class="lead">B</label>
+                        </div>
+                        <div class="col-xs-4 col-lg-4">
+                          <input type="text"  class="form-control" value="" name="bcm2"/>
+                        </div>
+                        <div class="col-xs-4 col-lg-4">
+                            <p class="lead">cm²</p>
+                        </div>
+                </div>
+                <div class="row">
+                         <div class="col-xs-4 col-lg-4">
+                            <label class="lead">C</label>
+                        </div>
+                        <div class="col-xs-4 col-lg-4">
+                            <input type="text"  class="form-control" value="" name="ccm2"/>
+                        </div>
+                        <div class="col-xs-4 col-lg-4">
+                            <p class="lead">cm²</p>
+                        </div>
+                 </div!-->
+                <div class="row">
+                        <div class="col-xs-4 col-lg-4">
+                            <input type="submit" class="btn btn-danger" value="Cloturer"/>
+                        </div>
+                 </div>
+
+
+                    </form>
+                  </div>
+                </div>
+            </div>
+       </div>
+            </div>
+{% endblock %}

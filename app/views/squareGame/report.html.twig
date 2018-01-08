@@ -1,0 +1,93 @@
+{% set squareGame_active = 1 %}
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+    <div class="container mt-60">
+         <h4>Résultats de votre campagne : "{{ app.session.get('nomSession') }}"</h4>
+        <div class="row">
+             <table class="table">
+                            <tr>
+                                <th width='100px'>Valeur</th>
+                                <th width='100px'>A en cm²</th>
+                                <th width='100px'>B en cm²</th>
+                                <th width='100px'>C en cm²</th>
+                                <th width='100px'>A en relatif</th>
+                                <th width='100px'>B en relatif</th>
+                                <th width='100px'>C en relatif</th>
+
+                            </tr>
+
+                            {% for elem in syntheseSession %}
+
+
+                            {% if elem.valeur=="mesures" %}
+                                <tr class="bg-success">
+
+                            {% elseif elem.valeur=="Ecart Type à la mesure" %}
+                                <tr class="bg-primary">
+
+                            {% elseif elem.valeur=="Ecart Type à la moyenne" %}
+                                <tr class="bg-danger">
+                            {% elseif elem.valeur=="moyenne" %}
+                                <tr class="bg-warning">
+                            {% else %}
+                            <tr>
+                            {% endif %}
+
+
+                                    <td>{{ elem.valeur }}</td>
+                                    <td>{{ elem.acm  }}</td>
+                                    <td>{{ elem.bcm  }}</td>
+                                    <td>{{ elem.ccm  }}</td>
+                                    <td>{{ elem.aRel }}</td>
+                                    <td>{{ elem.bRel }}</td>
+                                    <td>{{ elem.cRel }}</td>
+                            </tr>
+
+                         {% endfor %}
+
+            </table>
+        </div>
+        <div class="row">
+            <p>Le square game permet d'illustrer que</p>
+                <ul>
+                    <li>les estimations absolues (c.a.d. exprimées en centimètres, heures, jours ...) nécessitent plus d'éffort, qu'elles sont subjectives et jamais justes, pas consensuelles et relatives à chaque individu,</li>
+                    <li>les estimations relatives sont plus sipmles et naturelles. Elles nécessitent moins d'effort et permettent un consensus large. L'équipe peut alors se concentrer sur le contenu et ce qu'il y a à faire et sur les moyens de le réaliser.</li>
+                </ul>
+            <p>Une fois qu'une mesure de la surface totale (points de complexité) qu'une équipe est capable de produire sur une période fixe (un sprint), il devient facile d'estimer la suite par simple projection géométrique (burnup de produit) ou à l'aide d'un coeficient multiplicateur (vélocité)</p>
+
+
+        </div>
+        <h4>Liste des résultats campagne : "{{ app.session.get('nomSession') }}"</h4>
+        <div class="row">
+             <table class="table">
+                            <tr>
+
+                                <th>Nickname</th>
+                                <th>A en cm²</th>
+                                <th>B en cm²</th>
+                                <th>C en cm²</th>
+                                <th>A en relatif</th>
+                                <th>B en relatif</th>
+                                <th>C en relatif</th>
+
+                            </tr>
+
+                            {% for elem in resultatSession %}
+
+                            <tr>
+                                    <td>{{ elem.nickname }}</td>
+                                    <td>{{ elem.acm2 }}</td>
+                                    <td>{{ elem.bcm2 }}</td>
+                                    <td>{{ elem.ccm2 }}</td>
+                                    <td>{{ elem.aRel }}</td>
+                                    <td>{{ elem.bRel }}</td>
+                                    <td>{{ elem.cRel }}</td>
+                            </tr>
+
+                         {% endfor %}
+            </table>
+        </div>
+
+    </div>
+{% endblock %}

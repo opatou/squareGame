@@ -1,0 +1,68 @@
+{% set squareGame_active = 1 %}
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+
+        <div class="container mt-60">
+
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="row">
+                <br/>
+                Session  {{ app.session.get('nomSession') }} <b>{{ app.session.get('nickname') }}</b><br/>
+                <i>les résultats affichés ci dessous ne sont pas définitifs tant que la session n'est pas clôturée</i>
+            </div>
+            <div class="row">
+
+                     <table  class="table">
+                            <tr>
+                                <th width='100px'>Valeur</th>
+                                <th width='100px'>A en cm²</th>
+                                <th width='100px'>B en cm²</th>
+                                <th width='100px'>C en cm²</th>
+                                <th width='100px'>A en relatif</th>
+                                <th width='100px'>B en relatif</th>
+                                <th width='100px'>C en relatif</th>
+
+                            </tr>
+                            <tr class="bg-success">
+                                    <td>Vos résultats</td>
+                                    <td>{{app.session.get('acm2')  }}</td>
+                                    <td>{{app.session.get('bcm2')  }}</td>
+                                    <td>{{app.session.get('ccm2')  }}</td>
+                                    <td>{{app.session.get('aRel')  }}</td>
+                                    <td>{{app.session.get('bRel')  }}</td>
+                                    <td>{{app.session.get('cRel')  }}</td>
+                            </tr>
+
+                            {% for elem in syntheseSession%}
+                            
+                                    {% if elem.valeur=="mesures" %}
+                                        <tr class="bg-warning">
+                                    {% elseif elem.valeur=="Ecart Type à la mesure" %}
+                                        <tr class="bg-primary">
+
+                                    {% elseif elem.valeur=="Ecart Type à la moyenne" %}
+                                        <tr class="bg-danger">
+                                    {% elseif elem.valeur=="moyenne" %}
+                                        <tr class="bg-warning">
+                                    {% else %}
+                                        <tr>
+                                    {% endif %}
+
+                                    <td>{{ elem.valeur }}</td>
+                                    <td>{{ elem.acm  }}</td>
+                                    <td>{{ elem.bcm  }}</td>
+                                    <td>{{ elem.ccm  }}</td>
+                                    <td>{{ elem.aRel }}</td>
+                                    <td>{{ elem.bRel }}</td>
+                                    <td>{{ elem.cRel }}</td>
+                            </tr>
+
+                         {% endfor %}
+                    </table>
+
+            </div>
+        </form>
+    </div>
+{% endblock %}
